@@ -1,0 +1,531 @@
+git is the most popular [what type of software?].
+
+version control system
+
+
+
+[...] allows to track project's history (e.g. changes made to the code) and facilitates colaboration by multiple parties.
+
+version control system
+
+
+
+Version control system is also known as [...].
+
+source control management
+
+
+
+What are the two main types (as related to their architecture) of VCS software?
+<ul>
+<li>centralized</li>
+<li>distributed</li>
+</ul>
+
+
+
+In a [...] VCS all team members connect to a central server to get the latest copy of the code and to share their changes with others.
+
+centralized
+
+
+
+Examples of centralized VCS are:
+<ul>
+<li>Subversion</li>
+<li>Microsoft Team Foundation Server</li>
+</ul>
+
+
+
+In a [...] VCS every team member has a copy of the project with its history on their device - if the central server is offline users can synchronize their work directly with each other.
+
+distributed
+
+
+
+Examples of distributed VCS are:
+<ul>
+<li>git</li>
+<li>Mercurial</li>
+</ul>
+
+
+
+The 3 git configuration scopes are:
+<ul>
+<li>system</li>
+<li>global</li>
+<li>local</li>
+</ul>
+
+
+
+[which config scope?] - all users of the computer.
+
+system
+
+
+
+[which config scope?] - all repos of the current user.
+
+global
+
+
+
+[which config scope?] - the current repo.
+
+local
+
+
+
+To check version and whether git is installed:
+
+git --version
+
+
+
+To see help page in CLI:
+
+git <command> --help
+
+
+
+To see help summary in CLI:
+
+git <command> -h
+
+
+
+To open help page in browser:
+
+git help <command>
+
+
+
+Configuration is stored in [...] files.
+
+.gitconfig
+
+
+
+What are the important basic settings:
+<ul>
+<li>user.name</li>
+<li>user.email</li>
+<li>core.editor</li>
+<li>core.autocrlf</li>
+</ul>
+
+
+
+On Windows end of lines are marked with [...].
+
+carriage return / line feed (crlf)
+
+
+
+On Linux and Mac end of lines are marked with [...].
+
+line feed (lf)
+
+
+
+What is the recommended core.autocrlf setting on Windows?
+
+true (automatically adds and removes carriage return)
+
+
+
+What is the recommended core.autocrlf setting on Linux or Mac?
+
+input (automatically removes carriage return when storing code in repo)
+
+
+
+To configure a .gitconfig setting:
+
+git config <scope> <setting> <value>
+
+
+
+To edit a .gitconfig file with the default editor:
+
+git config <scope> -e
+
+
+
+To initialize an empty repo:
+
+git init
+
+
+
+Local repository is stored in [...] directory.
+
+.git
+
+
+
+Objects in git repo include:
+<ul>
+<li>[...]</li>
+<li>blobs (files)</li>
+<li>trees (directories)</li>
+<li>tags</li>
+</ul>
+
+commits
+
+
+
+Objects in git repo include:
+<ul>
+<li>commits</li>
+<li>[...]</li>
+<li>trees (directories)</li>
+<li>tags</li>
+</ul>
+
+blobs (files)
+
+
+
+Objects in git repo include:
+<ul>
+<li>commits</li>
+<li>blobs (files)</li>
+<li>[...]</li>
+<li>tags</li>
+</ul>
+
+trees (directories)
+
+
+
+Objects in git repo include:
+<ul>
+<li>commits</li>
+<li>blobs (files)</li>
+<li>trees (directories)</li>
+<li>[...]</li>
+</ul>
+
+tags
+
+
+
+Each [...] contains a complete snapshot of the project.
+
+commit
+
+
+
+[...] references last commit in the current branch.
+
+HEAD
+
+
+
+[...] allows to review changes made before committing a snapshot to the repository.
+
+Staging area
+
+
+
+Staging area is also known as [...].
+
+Index
+
+
+
+To see the satus of the working directory and the staging area:
+
+git status
+
+
+
+To get short status:
+
+git status -s
+
+
+
+In the output of git status -s the working directory is represented by which collumn?
+
+right
+
+
+In the output of git status -s the staging area is represented by which collumn?
+
+left
+
+
+
+To stage changes in the working directory:
+
+git add <file(s)>
+
+
+
+To commit staged changes:
+
+git commit -m <message>
+
+
+
+To amend previous commit:
+
+git commit -m <message> --amend
+
+
+
+To commit changes in the working directory and skip staging:
+
+git commit -a -m <message>
+
+
+
+After staged changes have been commited does the staging area become empty?
+
+No - it contains snapshot of the project identical to the commit.
+
+
+
+To list files in the staging area:
+
+git ls-files 
+
+
+
+To remove file(s) from both the working directory and the staging at the same time:
+
+git rm <file(s)>
+
+
+
+To remove file(s) only from the staging area:
+
+git rm --cached <file(s)>
+
+
+
+To move / rename a file in both the working directory and the staging at the same time:
+
+git mv <file> <file>
+
+
+
+To ignore files / directories they need to be added to the [...] file.
+
+.gitignore
+
+
+
+Objects added to .gitignore [are / aren't] ignored if they have been staged earlier (are tracked).
+
+aren't - they need to be removed from the staging area.
+
+
+
+To compare chages in the working directory with the staging area:
+
+git diff
+
+
+
+Does git diff return output if all changes have been staged?
+
+No
+
+
+
+To compare the staged changes to the last commit:
+
+git diff --staged
+
+
+
+diff --git a/file1 b/file2 - which of the files is the "old" copy (in the next environment upstream)?
+
+a/file1
+
+
+
+To create custom difftool:
+
+git config <scope> diff.tool <name>
+
+
+
+To set custom difftool:
+
+git config <scope> difftool.<name>.cmd "<executable> --wait --diff $LOCAL $REMOTE"
+
+
+
+To launch configured visual diff tool:
+
+git difftool
+
+
+
+To view commit history:
+
+git log
+
+
+
+To get git log brief output:
+
+git log --oneline
+
+
+
+To reverse order of commits in the output of git log:
+
+git log --reverse
+
+
+
+To view changes in particular commit:
+
+git show <commitID> OR HEAD~<numberOfCommitsBack>
+
+
+
+To view particular object in the repository:
+
+git show <objectID>
+
+
+
+To see the exact version of a file in a given commit:
+
+git show <commit>:<fullPath>
+
+
+
+To see whole directiories / files tree in a given commit:
+
+git ls-tree <commit>
+
+
+
+To revert changes in the working directory:
+
+git restore <file(s)>
+
+
+
+To revert changes in the staging area:
+
+git restore --staged <file(s)>
+
+
+
+git restore command by default takes copy of a file from [...].
+
+the next environment upstream (last commit > staging, staging > working directory)
+
+
+
+To restore deleted file from one of previous commits (after the change was commited):
+
+git restore --source=<commit> <path>
+
+
+
+To remove untracked files / directories:
+
+git clean
+
+
+
+To list all existing branches and highlight the current one:
+
+git branch
+
+
+
+To create a new branch:
+
+git branch <name>
+
+
+
+To delete a branch:
+
+git branch -d <name>
+
+
+
+To switch to the specified branch:
+
+git switch <name>
+
+
+
+To create a new branch and simultaneously switch to it:
+
+git switch -c <name>
+
+
+
+To merge the specified branch into the current branch:
+
+git merge <name>
+
+
+
+To merge with a commit message:
+
+git merge -m <message> <name>
+
+
+
+To add a remote:
+
+git remote add <name> <URL>
+
+
+
+To push to the remote and set it up as upstream:
+
+git push -u <name> <branchName>
+
+
+
+To fetch changes from the upstream remote:
+
+git fetch
+
+
+
+To pull changes from the upstream remote:
+
+git pull
+
+
+
+[...] - to download remote changes into the local repo WITHOUT merging them.
+
+git fetch
+
+
+
+[...] - to download remote changes into the local repo AND merge them.
+
+git pull
+
+
+
+[...] = git fetch + git merge
+
+git pull
+
+
+
+git pull = [...] + [...]
+
+git fetch + git merge
